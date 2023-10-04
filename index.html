@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Web Online</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        #app {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h2>Daily Expenses Tracker</h2>
+        <input type="text" id="expenseInput" placeholder="Enter expense">
+        <button onclick="addExpense()">Add Expense</button>
+        <ul id="expenseList"></ul>
+    </div>
+
+    <script>
+        function addExpense() {
+            var expenseInput = document.getElementById("expenseInput");
+            var expenseList = document.getElementById("expenseList");
+
+            if (expenseInput.value.trim() !== "") {
+                var listItem = document.createElement("li");
+                listItem.appendChild(document.createTextNode(expenseInput.value));
+                expenseList.appendChild(listItem);
+                expenseInput.value = "";
+            }
+        }
+    </script>
+</body>
+</html>
